@@ -1,0 +1,160 @@
+Williams-MacBook-Pro:~ williamweisberger$ mv hw-unix-cli-practice/ ga
+Williams-MacBook-Pro:~ williamweisberger$ ls ga
+061519			hw-unix-cli-practice
+Williams-MacBook-Pro:~ williamweisberger$ cd ga
+Williams-MacBook-Pro:ga williamweisberger$ mv hw-unix-cli-practice/ 061519/
+Williams-MacBook-Pro:ga williamweisberger$ mv 061519/ 061719/
+Williams-MacBook-Pro:ga williamweisberger$ ls
+061719
+Williams-MacBook-Pro:ga williamweisberger$ cd 061719/hw-unix-cli-practice/ && ls
+README.md
+Williams-MacBook-Pro:hw-unix-cli-practice williamweisberger$ mkdir star_wars
+Williams-MacBook-Pro:hw-unix-cli-practice williamweisberger$ touch commands.txt
+Williams-MacBook-Pro:hw-unix-cli-practice williamweisberger$ cd star_wars/
+Williams-MacBook-Pro:star_wars williamweisberger$ mkdir death_star
+Williams-MacBook-Pro:star_wars williamweisberger$ cd death_star; touch darth_vader.txt princess_leia.txt storm_trooper.txt
+Williams-MacBook-Pro:death_star williamweisberger$ cd ..
+Williams-MacBook-Pro:star_wars williamweisberger$ mkdir galaxy_far_far_away; cd galaxy_far_far_away && mkdir tatooine; cd tatooine && touch luke.txt ben_kenobi.txt
+Williams-MacBook-Pro:tatooine williamweisberger$ mkdir millenium_falcon; cd millenium_falcon && touch han_solo.txt chewbaca.txt
+Williams-MacBook-Pro:millenium_falcon williamweisberger$ cd ..
+Williams-MacBook-Pro:tatooine williamweisberger$ cd ..
+Williams-MacBook-Pro:galaxy_far_far_away williamweisberger$ cd ..
+Williams-MacBook-Pro:star_wars williamweisberger$ tree
+.
+├── death_star
+│   ├── darth_vader.txt
+│   ├── princess_leia.txt
+│   └── storm_trooper.txt
+└── galaxy_far_far_away
+    └── tatooine
+        ├── ben_kenobi.txt
+        ├── luke.txt
+        └── millenium_falcon
+            ├── chewbaca.txt
+            └── han_solo.txt
+
+4 directories, 7 files
+Williams-MacBook-Pro:star_wars williamweisberger$ cd galaxy_far_far_away/tatooine/ && mv ben_kenobi.txt obi_wan.txt
+Williams-MacBook-Pro:tatooine williamweisberger$ ls
+luke.txt		obi_wan.txt
+millenium_falcon
+Williams-MacBook-Pro:tatooine williamweisberger$ cp ../../death_star/storm_trooper.txt .
+Williams-MacBook-Pro:tatooine williamweisberger$ ls
+luke.txt		obi_wan.txt
+millenium_falcon	storm_trooper.txt
+Williams-MacBook-Pro:tatooine williamweisberger$ man mv
+Williams-MacBook-Pro:tatooine williamweisberger$ mv obi_wan.txt luke.txt millenium_falcon
+Williams-MacBook-Pro:tatooine williamweisberger$ ls
+millenium_falcon	storm_trooper.txt
+Williams-MacBook-Pro:tatooine williamweisberger$ mv millenium_falcon/ ../
+Williams-MacBook-Pro:tatooine williamweisberger$ cd ..
+Williams-MacBook-Pro:galaxy_far_far_away williamweisberger$ mv millenium_falcon/ ../death_star/
+Williams-MacBook-Pro:galaxy_far_far_away williamweisberger$ cd ../death_star/
+Williams-MacBook-Pro:death_star williamweisberger$ mv princess_leia.txt millenium_falcon/
+Williams-MacBook-Pro:death_star williamweisberger$ ls millenium_falcon/
+chewbaca.txt		obi_wan.txt
+han_solo.txt		princess_leia.txt
+luke.txt
+Williams-MacBook-Pro:death_star williamweisberger$ rm millenium_falcon/obi_wan.txt
+Williams-MacBook-Pro:death_star williamweisberger$ ls millenium_falcon/
+chewbaca.txt		luke.txt
+han_solo.txt		princess_leia.txt
+Williams-MacBook-Pro:death_star williamweisberger$ cd ..
+Williams-MacBook-Pro:star_wars williamweisberger$ mkdir galaxy_far_far_away/yavin_4; mv death_star/millenium_falcon/ galaxy_far_far_away/yavin_4
+Williams-MacBook-Pro:star_wars williamweisberger$ mkdir galaxy_far_far_away/yavin_4/x_wing; mv galaxy_far_far_away/yavin_4/millenium_falcon/princess_leia.txt galaxy_far_far_away/yavin_4 && mv galaxy_far_far_away/yavin_4/millenium_falcon/luke.txt galaxy_far_far_away/yavin_4/x_wing
+Williams-MacBook-Pro:star_wars williamweisberger$ cd galaxy_far_far_away/
+Williams-MacBook-Pro:galaxy_far_far_away williamweisberger$ cd yavin_4/
+Williams-MacBook-Pro:yavin_4 williamweisberger$ mv millenium_falcon/ x_wing/ ../
+Williams-MacBook-Pro:yavin_4 williamweisberger$ ls
+princess_leia.txt
+Williams-MacBook-Pro:yavin_4 williamweisberger$ cd ../../../
+Williams-MacBook-Pro:hw-unix-cli-practice williamweisberger$ cd star_wars/
+Williams-MacBook-Pro:star_wars williamweisberger$ tree
+.
+├── death_star
+│   ├── darth_vader.txt
+│   └── storm_trooper.txt
+└── galaxy_far_far_away
+    ├── millenium_falcon
+    │   ├── chewbaca.txt
+    │   └── han_solo.txt
+    ├── tatooine
+    │   └── storm_trooper.txt
+    ├── x_wing
+    │   └── luke.txt
+    └── yavin_4
+        └── princess_leia.txt
+
+6 directories, 7 files
+Williams-MacBook-Pro:star_wars williamweisberger$ cd death_star/
+Williams-MacBook-Pro:death_star williamweisberger$ mkdir tie_fighter_1 tie_fighter_2 tie_fighter_3
+Williams-MacBook-Pro:death_star williamweisberger$ mv darth_vader.txt tie_fighter_1
+Williams-MacBook-Pro:death_star williamweisberger$ cp storm_trooper.txt tie_fighter_2
+Williams-MacBook-Pro:death_star williamweisberger$ cp storm_trooper.txt tie_fighter_3
+Williams-MacBook-Pro:death_star williamweisberger$ tree
+.
+├── storm_trooper.txt
+├── tie_fighter_1
+│   └── darth_vader.txt
+├── tie_fighter_2
+│   └── storm_trooper.txt
+└── tie_fighter_3
+    └── storm_trooper.txt
+
+3 directories, 4 files
+Williams-MacBook-Pro:death_star williamweisberger$ mv tie_fighter_1 tie_fighter_2 tie_fighter_3 ../galaxy_far_far_away/
+Williams-MacBook-Pro:death_star williamweisberger$ cd ../galaxy_far_far_away/
+Williams-MacBook-Pro:galaxy_far_far_away williamweisberger$ rm tie_fighter_2 tie_fighter_3
+rm: tie_fighter_2: is a directory
+rm: tie_fighter_3: is a directory
+Williams-MacBook-Pro:galaxy_far_far_away williamweisberger$ rm -r tie_fighter_2 tie_fighter_3
+Williams-MacBook-Pro:galaxy_far_far_away williamweisberger$ tree
+.
+├── millenium_falcon
+│   ├── chewbaca.txt
+│   └── han_solo.txt
+├── tatooine
+│   └── storm_trooper.txt
+├── tie_fighter_1
+│   └── darth_vader.txt
+├── x_wing
+│   └── luke.txt
+└── yavin_4
+    └── princess_leia.txt
+
+5 directories, 6 files
+Williams-MacBook-Pro:galaxy_far_far_away williamweisberger$ touch x_wing/the_force.txt
+Williams-MacBook-Pro:galaxy_far_far_away williamweisberger$ rm -r ../death_star/
+Williams-MacBook-Pro:galaxy_far_far_away williamweisberger$ mv x_wing/ millenium_falcon/ yavin_4/
+Williams-MacBook-Pro:galaxy_far_far_away williamweisberger$ tree
+.
+├── tatooine
+│   └── storm_trooper.txt
+├── tie_fighter_1
+│   └── darth_vader.txt
+└── yavin_4
+    ├── millenium_falcon
+    │   ├── chewbaca.txt
+    │   └── han_solo.txt
+    ├── princess_leia.txt
+    └── x_wing
+        ├── luke.txt
+        └── the_force.txt
+
+5 directories, 7 files
+Williams-MacBook-Pro:galaxy_far_far_away williamweisberger$ cd ../
+Williams-MacBook-Pro:star_wars williamweisberger$ tree
+.
+└── galaxy_far_far_away
+    ├── tatooine
+    │   └── storm_trooper.txt
+    ├── tie_fighter_1
+    │   └── darth_vader.txt
+    └── yavin_4
+        ├── millenium_falcon
+        │   ├── chewbaca.txt
+        │   └── han_solo.txt
+        ├── princess_leia.txt
+        └── x_wing
+            ├── luke.txt
+            └── the_force.txt
